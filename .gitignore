@@ -12,3 +12,6 @@ frontend/dist/
 coverage/
 .terraform/
 *.tfstate*
+backend/var/
+
+*.tsbuildinfo

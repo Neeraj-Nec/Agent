@@ -9,7 +9,7 @@ from app.services.chat_service import ChatService
 router = APIRouter()
 
 
-@router.post("", response_model=ChatResponse)
+@router.post("", response_model=ChatResponse, summary="Submit a chat message", description="Agent execution is not configured yet.", responses={501: {"description": "No agent execution capability is configured."}})
 async def create_chat(
     request: ChatRequest,
     service: ChatService = Depends(get_chat_service),

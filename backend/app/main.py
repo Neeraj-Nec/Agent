@@ -21,7 +21,22 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     yield
 
 
-app = FastAPI(title=settings.app_name, version="0.1.0", lifespan=lifespan)
+app = FastAPI(
+    title=settings.app_name,
+    version="0.1.0",
+    description=(
+        "API for the AI Research Workspace. Agent execution and persistent "
+        "document/session workflows become available as their capabilities are configured."
+    ),
+    openapi_tags=[
+        {"name": "health", "description": "Service availability."},
+        {"name": "agents", "description": "Discover registered AI agents."},
+        {"name": "chat", "description": "Submit a message for agent execution."},
+        {"name": "documents", "description": "Document lifecycle API; storage is not configured."},
+        {"name": "sessions", "description": "Conversation sessions API; storage is not configured."},
+    ],
+    lifespan=lifespan,
+)
 app.include_router(api_router, prefix=settings.api_v1_prefix)
 
 

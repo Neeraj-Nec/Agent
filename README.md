@@ -11,6 +11,9 @@ A modular research workspace where users work with multiple independently develo
       Agent_Orchestrator --> Persistence_Interfaces
       FastAPI_Contracts -->|Future SSE events| React_Workspace
 
+## Run locally
+See [the local setup guide](docs/development/local-setup.md) for installation and start commands.
+
 ## Major folders
 - frontend: feature-based React/TypeScript workspace UI, API client, and streaming client. The React core remains suitable for a future Capacitor wrapper.
 - backend/app/api: versioned HTTP transport and schemas.
@@ -31,4 +34,4 @@ Add an independent package under backend/app/agents for each distinct workflow o
 A workspace feature calls a frontend service and typed API client. FastAPI validates the contract and invokes an application service. The service delegates execution to orchestration, which resolves the requested agent through the registry. Results return via response contracts or future SSE events. The frontend never imports LangGraph.
 
 ## Current scope
-This repository contains bootstraps, contracts, and placeholders. Agent behavior, model calls, real RAG ingestion/retrieval, tool implementations, persistence adapters, authentication, SSE transport, cloud resources, and CI checks remain intentionally incomplete. No provider or vector database is selected.
+Health and agent discovery are available. Sessions and document metadata are stored in PostgreSQL; original uploaded files use local disk storage for development. Chat returns HTTP 501 until an agent is configured. Model calls, document parsing, RAG ingestion/retrieval, authentication, SSE transport, production object storage, versioned migrations, cloud resources, and CI checks remain incomplete. See the local setup guide before using document or session endpoints.

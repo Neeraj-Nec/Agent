@@ -7,7 +7,7 @@ from app.services.agent_service import AgentService
 router = APIRouter()
 
 
-@router.get("", response_model=list[AgentMetadataSchema])
+@router.get("", response_model=list[AgentMetadataSchema], summary="List registered agents", description="Returns metadata for agents registered by the application. The list is empty until agent implementations are configured.")
 async def list_agents(
     service: AgentService = Depends(get_agent_service),
 ) -> list[AgentMetadataSchema]:
