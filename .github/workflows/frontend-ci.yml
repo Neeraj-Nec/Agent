@@ -1,0 +1,12 @@
+name: Frontend CI
+on:
+  push:
+    paths: ["frontend/**", "package.json", ".github/workflows/frontend-ci.yml"]
+  pull_request:
+    paths: ["frontend/**", "package.json", ".github/workflows/frontend-ci.yml"]
+jobs:
+  skeleton:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "TODO configure lint, typecheck, tests, and build"

@@ -1,0 +1,12 @@
+name: Backend CI
+on:
+  push:
+    paths: ["backend/**", ".github/workflows/backend-ci.yml"]
+  pull_request:
+    paths: ["backend/**", ".github/workflows/backend-ci.yml"]
+jobs:
+  skeleton:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "TODO configure lint, typecheck, tests, and security checks"

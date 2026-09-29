@@ -1,0 +1,2 @@
+class CapabilityNotConfiguredError(RuntimeError):
+    pass
